@@ -1,0 +1,266 @@
+.content{
+	width: 100%;
+    height: auto;
+    background: #F6F4F5;
+}
+.mainBox{
+	width: 1200px;
+    height: auto;
+    background: #FFFFFF;
+    margin: 0 auto;
+}
+.category{
+	width: 1200px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 12px;
+    color: #797979;
+    background: #F6F4F5;
+}
+.category>a{
+	padding: 0 5px;
+}
+.zxkfbtn{
+	width: 78px;
+    height: 20px;
+    background: url(../images/zxkf.png);
+    float: right;
+    margin-top: 15px; 
+}
+.itemshow{
+	position: relative;
+}
+.glass{
+	float: left;
+}
+.glass>ul{
+	margin-left: 45px;
+    margin-top: 20px;
+    margin-right: 20px;
+    float: left;
+} 
+.glass>ul>li{
+	margin-bottom: 10px;
+    border: 1px solid #EEEEEE;
+    cursor: pointer;
+    padding: 1px 1px;
+    width: 72px;
+    height: 72px;
+}
+.glass>ul>li:hover{
+	border: 2px solid #DC3334;
+	padding: 0 0;
+}
+.glass>ul>li>img{
+	width: 72px;
+    height: 72px;
+}
+#picshowbox{
+	width: 420px;
+    height: 420px;
+    margin-top: 20px;
+    float: left;
+    position: relative;
+}
+#picshowbox>img{
+	width: 420px;
+    height: 420px;
+}
+#filter{
+	width:210px;
+	height: 210px;
+	position: absolute;
+	opacity: 0.6;
+	background: #000;
+	z-index: 2;
+	display: none;
+}
+#maxBox{
+	position: absolute;
+	left:583px;
+	top:20px;
+	width: 420px;
+    height: 420px;
+    overflow: hidden;
+    display: none;
+}
+#maxBox>img{
+	position: absolute;
+	z-index:1;
+	/*width: 840px;
+    height: 840px;*/
+}
+.itemmsg {
+    width: 520px;
+    margin: 0 0 0 42px;
+    color: #666;
+    margin-top: 20px;
+    position: relative;
+    float: left;
+}
+.itemtitle {
+    font-size: 16px;
+    width: 480px;
+    line-height: 20px;
+    color: #000;
+    font-weight: 700;
+}
+.redad {
+    color: #e3393c;
+    width: 480px;
+    font-family: arial,"微软雅黑";
+    font-size: 14px;
+    line-height: 20px;
+    word-break: break-all;
+    margin-top: 7px;
+}
+.priceBox {
+    margin-top: 10px;
+    padding: 10px 0 10px 10px;
+    background: url(../images/pricBg.gif) no-repeat left center;
+    width: 520px;
+    position: relative;
+    left: -10px;
+}
+.newPriceBox {
+    margin-top: 10px;
+    height: 26px;
+    line-height: 26px;
+}
+.newPrice {
+    padding-top: 0;
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+    color: #666;
+    float: left;
+}
+.newPrice strong, .newPrice span {
+    height: 30px;
+    margin-right: 3px;
+}
+.newPrice strong {
+    color: #c40000;
+}
+.rmbIcon {
+    font-size: 16px;
+    padding-left: 16px;
+}
+.newPrice .price {
+    font-size: 24px;
+}
+.sale {
+    padding-top: 11px;
+    font-size: 12px;
+    color: #666;
+    height: 30px;
+    line-height: 30px;
+}
+.sale>span {
+    display: inline-block;
+    margin-right: 5px;
+    line-height: 30px;
+}
+.sale .redBox {
+    background: #c40000;
+    color: #fff;
+    line-height: 18px;
+    padding: 2px 2px 1px 2px;
+}
+.transTo {
+    margin-top: 10px;
+    height: 25px;
+    line-height: 25px;
+    clear: both;
+    font-size: 12px;
+}
+.pay {
+    margin-top: 17px;
+    height: 36px;
+    line-height: 36px;
+    border-top: 1px dashed #c9c9c9;
+    border-bottom: 1px dashed #c9c9c9;
+    color: #B4B4B4;
+    font-size: 12px;
+    font-family: "微软雅黑";
+}
+.pay p {
+    width: 170px;
+    float: left;
+    text-align: center;
+}
+.pay p em {
+    color: #c40000;
+    font-weight: 900;
+}
+.pay .line {
+    margin-top: 13px;
+    height: 12px;
+    width: 1px;
+    background: #ddd;
+    display: inline-block;
+    float: left;
+}
+.pay p:last-child em{
+	color: #228800;
+}
+.numbox {
+    margin-top: 15px;
+}
+.numbox .lttext {
+    float: left;
+    font-family: "微软雅黑";
+    margin-right: 15px;
+    font-size: 12px;
+    line-height: 30px;
+}
+.nums {
+    float: left;
+    width: 36px;
+    height: 28px;
+    border: 1px solid #c9c9c9;
+    text-align: center;
+    line-height: 28px;
+}
+.addBtn {
+    float: left;
+    margin-left: 4px;
+}
+.addBtn span {
+    display: block;
+    width: 18px;
+    height: 12px;
+    border: 1px solid #c9c9c9;
+    text-align: center;
+    line-height: 10px;
+    cursor: pointer;
+}
+.diffN {
+    margin-top: 2px;
+}
+.addBuy {
+    display: block;
+    width: 178px;
+    margin-top: 20px;
+    height: 38px;
+    line-height: 38px;
+    float: left;
+    background: #ffeeee;
+    border: 1px solid #c20106;
+    text-align: center;
+    font-size: 16px;
+    color: #c20000;
+}
+.addToCart{
+	display: block;
+    width: 180px;
+    margin-top: 20px;
+    margin-left: 16px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    float: left;
+    background: #c40000;
+    color: #fff;
+    font-size: 16px;
+}

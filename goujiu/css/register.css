@@ -1,0 +1,245 @@
+body{
+	height: 100%;
+    background: url(../images/login_bg.gif);
+    background-repeat: repeat;
+    animation: bg 150s linear infinite;
+    -moz-animation: bg 150s linear infinite;
+    -webkit-animation: bg 150s linear infinite;
+    -o-animation: bg 150s linear infinite;
+}
+@keyframes bg
+{
+	0%   {background-position:0 0; }
+	
+	100% {background-position:-1000px -1000px;}
+}
+
+@-moz-keyframes bg /* Firefox */
+{
+	0%   {background-position:0 0; }
+	
+	100% {background-position:-1000px -1000px;}
+}
+
+@-webkit-keyframes bg /* Safari and Chrome */
+{
+	0%   {background-position:0 0; }
+	
+	100% {background-position:-1000px -1000px;}
+}
+@-ms-keyframes bg /* Safari and Chrome */
+{
+	0%   {background-position:0 0; }
+	
+	100% {background-position:-1000px -1000px;}
+}
+@-o-keyframes bg /* Safari and Chrome */
+{
+	0%   {background-position:0 0; }
+	
+	100% {background-position:-1000px -1000px;}
+}
+.header{
+	width: 100%;
+    height: 89px;
+    border-bottom: 1px solid #c5c5c5;
+    background: #fff;
+}
+.mid{
+	width: 980px;
+	margin: 0 auto;
+}
+.logo{
+	float: left;
+    margin-top: 20px;
+}
+.signIn{
+	margin-top: 28px;
+    height: 30px;
+    line-height: 30px;
+    float: right;
+}
+.signIn>a{
+    display: inline-block;
+    margin-right: 30px;
+}
+.signIn>a:first-child{
+	color: blue;
+}
+.signIn>a:last-child{
+	color: red;
+}
+.icon{
+	display: inline-block;
+    margin-top: -3px;
+    margin-right: 5px;
+    vertical-align: middle;
+    width: 17px;
+    height: 17px;
+}
+.set{
+	background: url(../images/loginIcon.gif) no-repeat -1px -1px;
+}
+.service{
+	background: url(../images/loginIcon.gif) no-repeat -25px -1px;
+}
+.registerBox{
+	overflow: hidden;
+    margin-top: 24px;
+    background: #fff;
+    border: 6px solid rgba(199,199,199,0.7);
+}
+.tabForm{
+	position: relative;
+    float: left;
+    width: 600px;
+    height: 566px;
+    overflow: hidden;
+    border-right: 1px solid #dcdcdc;
+}
+.tabForm_btn{
+	height: 35px;
+    width: 515px;
+    margin: 33px auto 0 auto;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+}
+    
+.tab_l{
+	position: relative;
+    float: left;
+    width: 257px;
+    height: 23px;
+    text-align: center;
+    font-size: 14px;
+    border-right: 1px solid #ddd;
+}
+.tab_l>a{
+	display: block;
+    width: 100%;
+}
+.phone{
+	width: 17px;
+	height: 24px;
+    background: url(../images/loginIcon.gif) no-repeat -387px -5px;
+}
+.actBd{
+	position: absolute;
+    left: 0;
+    bottom: -33px;
+    width: 100%;
+    height: 7px;
+    background: url(../images/loginIcon.gif) no-repeat left -37px;
+}
+.formBox{
+	width: 600px;
+    padding-top: 34px;
+    overflow: hidden;
+}
+.mgnAuto{
+	width: 350px;
+    margin: 0 auto;
+}
+.text_box{
+	width: 348px;
+    height: 52px;
+    line-height: 52px;
+    border: 1px solid #c5c5c5;
+    margin-top: -1px;
+}
+.text_box>span{
+	margin-left: 18px;
+    color: #969696;
+}
+.text_box>input{
+	width: 260px;
+    border: none;
+    height: 24px;
+    line-height: 24px;
+    padding-bottom: 3px;
+    background: transparent;
+    text-indent: 20px;
+}
+.mgTop12{
+	margin-top: 12px;
+}
+.codeText{
+	width: 169px;
+	float: left;
+}
+.codeText>input{
+	width: 100px;
+    text-indent: 6px;
+}
+.codeBox{
+	height: 54px;
+}
+.numCode{
+	margin-left: 10px;
+    width: 124px;
+    height: 52px;
+    border: 1px solid #c5c5c5;
+    float: left;
+    margin-top: -1px;
+}
+.replace_num{
+	margin-left: 5px;
+    height: 54px;
+    line-height: 54px;
+    color: #325e8f;
+    float: left;
+}
+.regCodeBtn{
+	margin-left: 12px;
+    display: inline-block;
+    height: 31px;
+    line-height: 31px;
+    border: 1px solid #ddd;
+    padding: 0px 8px;
+    color: #646464;
+}
+.mobileIcon{
+	display: inline-block;
+    width: 15px;
+    height: 24px;
+    margin-left: 20px;
+    vertical-align: middle;
+    margin-top: -3px;
+    background: url(../images/loginIcon.gif) no-repeat -387px -5px;
+}
+.text_box>.check_code{
+	margin-left: 5px;
+    vertical-align: middle;
+    width: 103px;
+    height: 31px;
+    line-height: 31px;
+    border: 1px solid #ddd;
+    text-indent: 0;
+    text-align: center;
+    color: #646464;
+}
+.agreement{
+	height: 40px;
+    line-height: 40px;
+}
+.subBtn{
+	display: block;
+    width: 348px;
+    height: 42px;
+    text-align: center;
+    line-height: 42px;
+    color: #fff;
+    font-size: 14px;
+    border: 1px solid #a8221f;
+    border-radius: 2px;
+    background: #fa413f;
+}
+.footer{
+	margin-top: 50px;
+    text-align: center;
+    line-height: 22px;
+}
+.links>a{
+	display: inline-block;
+    margin: 0 10px;
+}
