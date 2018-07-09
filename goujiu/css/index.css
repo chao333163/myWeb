@@ -423,7 +423,6 @@
 	width: 190px;
     height: 470px;
     float: right;
-    opacity: .7;
     z-index: 14;
 }
 .shine>a>img{
@@ -433,6 +432,7 @@
     margin-bottom: 20px;
     margin-top: 15px;
     transition: all 1s;
+    opacity: .7;
 }
 .shine>a>img:hover{
 	opacity: .9;
@@ -802,6 +802,7 @@
 .sp-name {
     padding: 20px 0 5px;
     display: block;
+    font-size: 16px;
 }
 .playicon {
     width: 31px;
@@ -816,9 +817,16 @@
     color: #FFF;
     text-indent: 4px;
     transition: all .4s;
+    font-size: 16px;
 }
-
-
+.sp-list li:hover{
+	position: relative;
+    top: -5px;
+}
+.sp-list li:hover .playicon{
+	background: #ff7b21;
+	border: 2px solid #ff7b21;
+}
 
 
 

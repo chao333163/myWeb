@@ -55,11 +55,13 @@
 	width: 72px;
     height: 72px;
 }
+.showbox{
+	float: left;
+}
 #picshowbox{
 	width: 420px;
     height: 420px;
     margin-top: 20px;
-    float: left;
     position: relative;
 }
 #picshowbox>img{
@@ -75,6 +77,59 @@
 	z-index: 2;
 	display: none;
 }
+.shareBox{
+	position: relative;
+    left: -94px;
+    float: left;
+}
+.shareBox>span{
+	line-height: 45px;
+    color: #666666;
+    font-size: 15px;
+    float: left;
+}
+.shareBox .share_weixin{
+	width: 23px;
+    height: 18px;
+    background: url(../images/shareicon.png);
+    background-position: 0px 18px;
+    display: inline-block;
+    margin-top: 15px;
+    margin-right: 6px;
+    vertical-align: top;
+}
+.shareBox .share_weixin:hover{
+	background-position: 0px 0px;
+}
+.shareBox .share_weibo{
+	width: 23px;
+    height: 18px;
+    background: url(../images/shareicon.png);
+    background-position: 23px 18px;
+    display: inline-block;
+    margin-top: 15px;
+    vertical-align: top;
+}
+.shareBox .share_weibo:hover{
+	background-position: 23px 0px;
+}
+.collectionBox{
+	float: right;
+}
+.collectionBox>a{
+	display: block;
+	margin-top: 12px;
+	margin-right: 8px;
+	float: left;
+}
+.collectionBox>span{
+	line-height: 45px;
+    color: #666666;
+    font-size: 15px;
+    margin-right: 10px;
+    cursor: pointer;
+    float: left;
+}
 #maxBox{
 	position: absolute;
 	left:583px;
@@ -87,8 +142,6 @@
 #maxBox>img{
 	position: absolute;
 	z-index:1;
-	/*width: 840px;
-    height: 840px;*/
 }
 .itemmsg {
     width: 520px;
@@ -108,11 +161,26 @@
 .redad {
     color: #e3393c;
     width: 480px;
-    font-family: arial,"微软雅黑";
     font-size: 14px;
     line-height: 20px;
     word-break: break-all;
     margin-top: 7px;
+}
+.sppp {
+    position: absolute;
+    right: -75px;
+    top: 0;
+    width: 80px;
+    text-align: center;
+    font-size: 13px;
+}
+.sppp em {
+    background: rgb(161,139,126);
+    color: #fff;
+    border-radius: 4px 4px;
+    padding: 1px 5px;
+    line-height: 30px;
+    height: 30px;
 }
 .priceBox {
     margin-top: 10px;
@@ -174,6 +242,21 @@
     clear: both;
     font-size: 12px;
 }
+.transTo .psz, .transTo .at {
+    float: left;
+    margin-right: 10px;
+}
+.transTo>img{
+	margin-left: 8px;
+}
+.at_btn {
+    display: inline-block;
+    height: 24px;
+    line-height: 24px;
+    padding: 0 5px;
+    background: #fff;
+    border: 1px solid #ccc;
+}
 .pay {
     margin-top: 17px;
     height: 36px;
@@ -182,7 +265,6 @@
     border-bottom: 1px dashed #c9c9c9;
     color: #B4B4B4;
     font-size: 12px;
-    font-family: "微软雅黑";
 }
 .pay p {
     width: 170px;
@@ -209,7 +291,6 @@
 }
 .numbox .lttext {
     float: left;
-    font-family: "微软雅黑";
     margin-right: 15px;
     font-size: 12px;
     line-height: 30px;
@@ -263,4 +344,13 @@
     background: #c40000;
     color: #fff;
     font-size: 16px;
+}
+.apphover{
+	float: left;
+    position: relative;
+    margin-top: 28px;
+    font-size: 13px;
+    padding: 2px 0;
+    padding-left: 30px;
+    color: #666666;
 }
