@@ -1,109 +1,130 @@
-var oBanner = $("banner");
-var aLi = oBanner.getElementsByTagName("ul")[0].getElementsByTagName("li");
-var aA = $("direction").getElementsByTagName("a");;
-var aBtn = $("numBtn").getElementsByTagName("a");
-var iNow = 0;
-var Next = 0;
-var timer = null;
-for(var i = 0; i < aBtn.length; i++) {
-	aBtn[i].index = i;
-	aBtn[i].onmouseover = function() {
-		for(var j = 0; j < aBtn.length; j++) {
-			aBtn[j].className = '';
+function banner(){
+	this.oBanner = $("#banner");
+	this.oUl = $("#banner>ul");
+	this.aLi = $("#banner>ul>li");
+	this.aDir = $("#direction>a");
+	this.aBtn = $("#numBtn>a");
+	this.iNow = 0;
+	this.Next = 0;
+	this.timer = null;
+	this.init();
+}
+$.extend(banner.prototype,{
+	init:function(){
+		this.autoplay()
+		this.mouseover();
+		this.mouseout();
+		this.dirLeft();
+		this.dirRight();
+		this.aBtnClick();
+	},
+	aBtnClick:function(){
+		this.aBtn.each($.proxy(this.handleaBtnEach,this))
+	},
+	handleaBtnEach:function(i){
+		this.aBtn.eq(i).on("click",i,$.proxy(this.handleAbtn,this))
+	},
+	handleAbtn:function(event){
+		var index = event.data;
+		this.aBtn.eq(index).addClass('active').siblings().removeClass("active");
+		this.Next = index;
+		this.toImg();	
+	},
+	dirRight:function(){
+		this.aDir.eq(1).on("click",$.proxy(this.handleDirRight,this))
+	},
+	handleDirRight:function(){
+		if(this.Next == this.aLi.length-1 ){
+			this.Next = 0;
+		}else{
+			this.Next++;
 		}
-		this.className = "active";
-		move(aLi[iNow], {
-			"opacity": 0
-		});
-		move(aLi[this.index], {
-			"opacity": 100
-		});
-		Next = this.index
-		iNow = Next;
-	}
-}
-aA[0].onclick = function() {
-	if(Next == 0) {
-		Next = aLi.length - 1;
-	} else {
-		Next--;
-	}
-	toImg()
-}
-
-aA[1].onclick = function() {
-	if(Next == aLi.length - 1) {
-		Next = 0;
-	} else {
-		Next++;
-	}
-	toImg()
-}
-oBanner.onmouseover = function() {
-	clearInterval(timer)
-}
-oBanner.onmouseout = function() {
-	autoPlay()
-}
-autoPlay()
-
-function autoPlay() {
-	timer = setInterval(function() {
-		if(Next == aLi.length - 1) {
-			Next = 0;
-		} else {
-			Next++;
+		this.toImg();
+	},
+	dirLeft:function(){
+		this.aDir.eq(0).on("click",$.proxy(this.handleDirLeft,this))
+	},
+	handleDirLeft:function(){
+		if(this.Next == 0 ){
+			this.Next = this.aLi.length-1;
+		}else{
+			this.Next--;
 		}
-		toImg()
-	}, 3000)
-}
-
-function toImg() {
-	move(aLi[iNow], {
-		"opacity": 0
-	});
-	move(aLi[Next], {
-		"opacity": 100
-	});
-	iNow = Next;
-	for(var i = 0; i < aBtn.length; i++) {
-		aBtn[i].className = '';
+		this.toImg();;
+	},
+	mouseover:function(){
+		this.oBanner.on("mouseover",$.proxy(this.handleMouseover,this))
+	},
+	handleMouseover:function(){
+		clearInterval(this.timer);
+	},
+	mouseout:function(){
+		this.oBanner.on("mouseout",$.proxy(this.handleMouseout,this))
+	},
+	handleMouseout:function(){
+		this.autoplay()
+	},
+	autoplay:function(){
+		this.timer = setInterval($.proxy(this.handleSetInterval,this),3000)
+	},
+	handleSetInterval:function(){
+		if(this.Next == this.aLi.length-1 ){
+			this.Next = 0;
+		}else{
+			this.Next++;
+		}
+		this.toImg();
+	},
+	toImg:function(){
+		this.aLi.eq(this.iNow).stop(true).fadeTo(1000,0);
+		this.aLi.eq(this.Next).stop(true).fadeTo(1000,1);
+		this.iNow = this.Next;
+		this.aBtn.eq(this.Next>=this.aLi.length?0:this.iNow).addClass("active").siblings().removeClass("active");
 	}
-	aBtn[Next].className = "active";
-}
+})
+new banner();
 
- ajax("get","json/index.json",{},function(data){
- 	var oList1 = document.querySelector(".big-addbox>ul");
- 	var oList2 = document.querySelector(".ptj-rt>ul");
- 	var str1 = "";
- 	var str2 = "";
- 	var data1 = data.data1;
- 	var data2 = data.data2;
- 	for(var i=0;i<data1.length;i++){
- 		str1+=`<li>
+$(function(){
+	var str1 = '';
+	var str2 = '';
+	$.getJSON("json/index.json",function(data){
+		var data1 = data.data1;
+		var data2 = data.data2;
+		$.each(data1,function(i){
+			str1+=`<li>
 					<a href="##">
-						<img src="${data1[i].recommend_img}">
+						<img src="${data1[i].recommend_img}" class="pics" data-id="${data1[i].id}">
 						<div class="item-msg">
 							<span class="fl">${data1[i].title}</span>
 							<span class="fr"><em>${data1[i].price}</em>元</span>
 						</div>
 					</a>
 				</li>`
- 	};
-   	for(var j=0;j<data2.length;j++){
-   		str2+=`<li>
+		});
+		$.each(data2,function(j){
+			str2+=`<li>
 					<a href="##">
 						<div class="item-style">${data2[j].describe}</div>
-						<img src="${data2[j].recommend_img}">
+						<img src="${data2[j].recommend_img}" class="pics" data-id="${data2[j].id}">
 						<div class="item-name">${data2[j].title}</div>
 						<div class="item-pri">${data2[j].price} 元</div>
 					</a>
 				</li>`
-   	};
- 	
- 	oList1.innerHTML = str1;
-   	oList2.innerHTML = str2;
- });
+		});
+		$(".big-addbox>ul").html(str1);
+		$(".ptj-rt>ul").html(str2);
+	})
+});
+
+$(function() {
+	$(".center").on("click",".pics",function(){
+		var num = $(this).attr("data-id");	
+		location.href = "details.html?"+num;
+	})
+});
+
+
+
 
 
 

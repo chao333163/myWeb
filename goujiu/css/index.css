@@ -217,6 +217,9 @@
 .listNav>a{
 	color: #fff;
 }
+.itemList>.listNav>a:hover{
+	color: #fff;
+}
 .listNav>ul{
 	position: absolute;
     top: 45px;
