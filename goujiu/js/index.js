@@ -8,7 +8,7 @@ function banner(){
 	this.Next = 0;
 	this.timer = null;
 	this.init();
-}
+};
 $.extend(banner.prototype,{
 	init:function(){
 		this.autoplay()
@@ -81,7 +81,7 @@ $.extend(banner.prototype,{
 		this.iNow = this.Next;
 		this.aBtn.eq(this.Next>=this.aLi.length?0:this.iNow).addClass("active").siblings().removeClass("active");
 	}
-})
+});
 new banner();
 
 $(function(){

@@ -1,13 +1,14 @@
-$(function(){
+$(function () {
 	var str1 = "";
 	var str2 = "";
 	var num = location.href.split('?')[1];
-	$.getJSON("json/index.json",function(data){
+	$.ajaxSettings.async = false;
+	$.getJSON("json/index.json", function (data) {
 		var data1 = data.data1;
 		var data2 = data.data2;
-		$.each(data1,function(i){
-			if(data1[i].id == num){
-				str1+=`<div class="buyBox">
+		$.each(data1, function (i) {
+			if (data1[i].id == num) {
+				str1 += `<div class="buyBox">
 					<div class="category">
 						<a href="##">首页</a>>
 						<a href="##">${data1[i].type}</a>>
@@ -117,10 +118,9 @@ $(function(){
 				</div>`
 			}
 		});
-		// $(".mainBox").html(str1);
-		$.each(data2,function(j){
-			if(data2[j].id == num){
-				str2+=`<div class="buyBox">
+		$.each(data2, function (j) {
+			if (data2[j].id == num) {
+				str2 += `<div class="buyBox">
 					<div class="category">
 						<a href="##">首页</a>>
 						<a href="##">${data2[j].type}</a>>
@@ -230,11 +230,64 @@ $(function(){
 				</div>`
 			}
 		});
-		$(".mainBox").html(str1.concat(str2));	
+		$(".mainBox").html(str1.concat(str2));
 	})
 });
- 				
-  
+
+$(function () {
+	var aSmall = $(".small"); //左边小图片
+	var oPicshowbox = $("#picshowbox"); //图片展示区
+	var oMiddle = $(".middle"); //图片展示区的图片
+	var oFilter = $("#filter"); //放大滑块
+	var oMaxBox = $("#maxBox"); //放大图片展示区
+	var oMaxImg = $(".maxImg"); //放大图片展示区的图片
+	aSmall.mousemove(function () {
+		var NowSrc = $(this).data('url');
+		oMiddle.attr('src', NowSrc);
+		oMaxImg.attr('src', NowSrc);
+	});
+	oPicshowbox.mousemove(function () {
+		oFilter.css("display", "block");
+		oMaxBox.css("display", "block");
+	});
+	oPicshowbox.mouseout(function () {
+		oFilter.css("display", "none");
+		oMaxBox.css("display", "none");
+	});
+	oPicshowbox.mousemove(function (e) {
+		var e = e || event;
+		var scroll = $(document).scrollTop();
+		var l = e.clientX - oPicshowbox.offset().left - oFilter.width() / 2;
+		var t = e.clientY + scroll - oPicshowbox.offset().top - oFilter.height() / 2;
+		if (l < 0) {
+			l = 0;
+		} else if (l > oPicshowbox.width() - oFilter.width()) {
+			l = oPicshowbox.width() - oFilter.width();
+		}
+		if (t < 0) {
+			t = 0;
+		} else if (t > oPicshowbox.height() - oFilter.height()) {
+			t = oPicshowbox.height() - oFilter.height();
+		}
+		oFilter.css({
+			left:l,
+			top:t,
+		})
+		oMaxImg.css({
+			left:-1.1*l,
+			top:-1.1*t,
+		})
+	})
+})
+
+
+
+
+
+
+
+
+
 
 // var aSmall = document.querySelectorAll(".small");
 // var oMiddle = document.querySelector(".middle");
@@ -244,33 +297,33 @@ $(function(){
 // var oPicshowbox = document.getElementById("picshowbox");
 
 // var oItemshow = document.querySelector(".itemshow")
-// for(var i = 0; i < aSmall.length; i++) {
-// 	aSmall[i].onmouseover = function() {
+// for (var i = 0; i < aSmall.length; i++) {
+// 	aSmall[i].onmouseover = function () {
 // 		var src = this.getAttribute("data-url");
 // 		oMiddle.src = src;
 // 		oMaxImg.src = src;
 // 	}
 // }
-// oPicshowbox.onmouseover = function() {
+// oPicshowbox.onmouseover = function () {
 // 	oFilter.style.display = "block";
 // 	oMaxBox.style.display = "block";
 // }
-// oPicshowbox.onmouseout = function() {
+// oPicshowbox.onmouseout = function () {
 // 	oFilter.style.display = "none";
 // 	oMaxBox.style.display = "none";
 // }
-// oPicshowbox.onmousemove = function(e) {
+// oPicshowbox.onmousemove = function (e) {
 // 	var e = e || event;
 // 	var left = e.clientX - oItemshow.offsetLeft - oPicshowbox.offsetLeft - oFilter.offsetWidth / 2;
 // 	var top = e.clientY + window.scrollY - oItemshow.offsetTop - oPicshowbox.offsetTop - oFilter.offsetHeight / 2;
-// 	if(left < 0) {
+// 	if (left < 0) {
 // 		left = 0;
-// 	} else if(left > oPicshowbox.offsetWidth - oFilter.offsetWidth) {
+// 	} else if (left > oPicshowbox.offsetWidth - oFilter.offsetWidth) {
 // 		left = oPicshowbox.offsetWidth - oFilter.offsetWidth;
 // 	}
-// 	if(top < 0) {
+// 	if (top < 0) {
 // 		top = 0;
-// 	} else if(top > oPicshowbox.offsetHeight - oFilter.offsetHeight) {
+// 	} else if (top > oPicshowbox.offsetHeight - oFilter.offsetHeight) {
 // 		top = oPicshowbox.offsetHeight - oFilter.offsetHeight;
 // 	}
 // 	oFilter.style.left = left + 'px';
